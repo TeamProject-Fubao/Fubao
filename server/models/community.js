@@ -14,11 +14,11 @@ const community = function (Sequelize, Database) {
       },
       title: {
         type: Database.STRING(500),
-        allowNull: true,
+        allowNull: false,
       },
       content: {
-        type:  Database.STRING(500),
-        allowNull: false,
+        type: Database.STRING(500),
+        allowNull: true,
       },
       img: {
         type: Database.STRING(500),
