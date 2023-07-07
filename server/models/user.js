@@ -4,25 +4,25 @@ const user = function (Sequelize, Database) {
     {
       id: {
         type: Database.BIGINT,
-        allowNull: false,
+        allowNull: true,
         primaryKey: true,
         autoIncreament: true,
       },
       password: {
         type: Database.STRING(255),
-        allowNull: false,
+        allowNull: true,
       },
       username: {
         type: Database.STRING(20),
-        allowNull: false,
+        allowNull: true,
       },
       nickname: {
         type: Database.STRING(30),
-        allowNull: false,
+        allowNull: true,
       },
       email: {
         type: Database.STRING(50),
-        allowNull: false,
+        allowNull: true,
       },
     },
     {

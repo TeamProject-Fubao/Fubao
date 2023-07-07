@@ -13,15 +13,15 @@ const community = function (Sequelize, Database) {
         allowNull: true,
       },
       title: {
-        type: Database.STRING(50),
-        allowNull: true,
-      },
-      content: {
-        type:  Database.STRING(50),
+        type: Database.STRING(500),
         allowNull: false,
       },
+      content: {
+        type: Database.STRING(500),
+        allowNull: true,
+      },
       img: {
-        type: Database.STRING(50),
+        type: Database.STRING(500),
         allowNull: true,
       },
       comment: {
@@ -35,7 +35,7 @@ const community = function (Sequelize, Database) {
       faviorite_id: {
         type: Database.INTEGER,
         allowNull: true,
-      },  
+      },
     },
     {
       tablename: "community",
