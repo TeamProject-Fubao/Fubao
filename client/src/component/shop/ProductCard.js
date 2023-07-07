@@ -3,11 +3,33 @@ import React, { useState } from "react";
 
 function ProductCard(props) {
   const [showCards, setShowCards] = useState(false);
+  const [showMoreButton, setShowMoreButton] = useState(true);
+  const [showGoodsBox, setShowGoodsBox] = useState(true);
 
-  //console.log(props)
+
   const handleClick = () => {
     setShowCards(!showCards);
+    setShowGoodsBox(false);
+
   };
+
+  // let codeExecuted = false;
+  // let showCards = false;
+
+  // const handleClick = () => {
+  //   if (!codeExecuted) {
+  //     codeExecuted = true;
+  //     showCards = true;
+  //   }
+  // };
+
+  // const handleClick = () => {
+  //   if (!handleClickExecuted) {
+  //     showCards = true;
+  //     handleClickExecuted = true;
+  //     console.log("하이");
+  //   }
+  // };
   return (
     <>
       <div className="goods-box">
@@ -16,7 +38,7 @@ function ProductCard(props) {
       <div className="goods-box-img">
         <div className="row">
           {props.goods.slice(0, 8).map((a, i) => {
-            return <Card goods={a} i={i + 1} />;
+            return <Card goods={a} i={i + 1} key={i} />;
           })}
         </div>
       </div>
@@ -30,12 +52,20 @@ function ProductCard(props) {
           </div>
         )}
       </div>
-      <div className="goods-box">
-        <button onClick={handleClick}>More</button>
-      </div>
+
+      {showGoodsBox && (
+  <div className="goods-box">
+    <div className="more-btn" onClick={handleClick}>
+      More
+    </div>
+  </div>
+)}
+
 
       {/* <div className="goods-box">
-        <button on>더 보기</button>
+        <div className="more-btn" onClick={handleClick}>
+          More
+        </div>
       </div> */}
     </>
   );

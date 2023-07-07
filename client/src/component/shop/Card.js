@@ -11,15 +11,15 @@ function Card(props) {
     <>
       <div className="container" onClick={moveDetail}>
         <div className="col-md-4 line">
-          <img
+          <img className="card-img"
             src={
               process.env.PUBLIC_URL + "goods_image/" + props.goods.id + ".jpg"
             }
             width="100%"
           />
           <h4>{props.goods.product_title}</h4>
-          <p>{props.goods.content}</p>
-          <p>{props.goods.price}</p>
+          <p>feat. {props.goods.content}</p>
+          <p>{props.goods.price} 원</p>
         </div>
       </div>
     </>

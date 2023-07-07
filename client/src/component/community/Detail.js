@@ -37,15 +37,19 @@ export default function Detail() {
   }, [params.postNum]);
 
   const DeleteHandle = () => {
+    console.log("fff",params.postNum);
     if (window.confirm("정말로 삭제하시겠습니까?")) {
       const fetchData = async () => {
         try {
           let body = {
             postNum: params.postNum
           };
-          const response = await axios.post(`http://localhost:8000/community/detail/${params.postNum}`, body);
+          const response = await axios.delete(`http://localhost:8000/community/lounge/${params.postNum}`, body);
+          console.log(response);
+          if (response.status === 200) {
             alert("게시글이 삭제되었습니다.");
-            navigate('/');
+            navigate('/community');
+          }
         } catch (err) {
           alert("게시글이 삭제되었습니다.");
         }
@@ -54,7 +58,7 @@ export default function Detail() {
       fetchData();
     }
   };
-
+  
   return (
     <div>
       <PostDiv>
@@ -62,14 +66,13 @@ export default function Detail() {
           <>
             <Post>
               <h1>{PostInfo.title}</h1>
-              <h2>{PostInfo.image}</h2>
-              {/* {PostInfo.image ? (
-                <img src={`http://localhost:8000/${PostInfo.image}`} alt="" />
-              ) : null} */}
+              {PostInfo.img ? (
+                <img src={PostInfo.img} alt="" />
+              ) : null}
               <p>{PostInfo.content}</p>
             </Post>
             <BtnDiv>
-              <Link to={`/edit/${PostInfo.postNum}`}>
+              <Link to={`/edit/${params.postNum}`}>
                 <button className="edit">UPDATE</button>
               </Link>
               <button className="delete" onClick={DeleteHandle}>

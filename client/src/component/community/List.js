@@ -10,7 +10,7 @@ export default function List() {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:8000/community");
-        setPostList(response.data.data); 
+        setPostList(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -24,7 +24,7 @@ export default function List() {
     <ListDiv>
       {postList.map((post, idx) => (
         <ListItem key={idx}>
-          <Link to={`detail/${post.id + 1}`}>
+          <Link to={`detail/${post.id}`}>
             <p className="title">{post.title}</p>
             <p>{post.content}</p>
           </Link>

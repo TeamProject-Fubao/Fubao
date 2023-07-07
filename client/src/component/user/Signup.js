@@ -1,7 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./User.css";
 import axios from "axios";
 import { SERVER } from "../../lib/constant";
+import { useNavigate } from "react-router-dom";
+
 export default function Signup() {
   const [inputid, setInputid] = useState("");
   const [inputpw, setInputpw] = useState("");
@@ -13,6 +15,17 @@ export default function Signup() {
   const nameRef = useRef();
   const nicknameRef = useRef();
   const emailRef = useRef();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `${SERVER}/user/signup`,
+    }).then(() => {
+      console.log("회원가입 화면 열기");
+    });
+  }, []);
+
   const checkinput = () => {
     if (inputid.trim().length === 0) {
       idRef.current.focus();
@@ -39,6 +52,7 @@ export default function Signup() {
   const submit = (e) => {
     e.preventDefault();
     if (!checkinput()) return;
+
     const user = {
       id: inputid,
       password: inputpw,
@@ -47,12 +61,14 @@ export default function Signup() {
       email: inputemail,
     };
     console.log(user);
-    axios({ method: "POST", url: `${SERVER}/user/signup`, data: user }).then(
-      () => {
-        console.log("회원가입 완료");
-      }
-    );
-    // <link to="./Login"></link>;
+    axios({
+      method: "POST",
+      url: `${SERVER}/user/signup`,
+      data: user,
+    }).then(() => {
+      console.log("회원가입 완료");
+      navigate("/Login");
+    });
   };
   return (
     <>
@@ -70,6 +86,7 @@ export default function Signup() {
                 required=""
                 value={inputid}
                 onChange={(e) => setInputid(e.target.value)}
+                ref={idRef}
               />
             </div>
             <div className="input">
@@ -82,6 +99,7 @@ export default function Signup() {
                 required=""
                 value={inputpw}
                 onChange={(e) => setInputpw(e.target.value)}
+                ref={pwRef}
               />
             </div>
             <div className="input">
@@ -94,6 +112,7 @@ export default function Signup() {
                 required=""
                 value={inputname}
                 onChange={(e) => setInputname(e.target.value)}
+                ref={nameRef}
               />
             </div>
             <div className="input">
@@ -110,6 +129,7 @@ export default function Signup() {
                 required=""
                 value={inputnickname}
                 onChange={(e) => setInputnickname(e.target.value)}
+                ref={nicknameRef}
               />
             </div>
             <div className="input">
@@ -122,6 +142,7 @@ export default function Signup() {
                 required=""
                 value={inputemail}
                 onChange={(e) => setInputemail(e.target.value)}
+                ref={emailRef}
               />
             </div>
           </div>

@@ -5,6 +5,7 @@ const shopRouter = require("./shopRouter");
 const commuRouter = require("./commuRouter");
 const userRouter = require("./userRouter");
 
+
 router.get("/", controller.getHome);
 router.use("/shop", shopRouter);
 router.use("/community", commuRouter);

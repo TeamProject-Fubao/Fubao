@@ -19,11 +19,10 @@
 .table-box1,
 .table-box2 {
   display: flex;
-  /* flex-direction: row; */
-  /* justify-content: center; */
   align-items: center;
   justify-content: space-between;
 }
+
 .table-box1 div,
 .table-box2 div {
   /* Adjust the styling as needed */
@@ -57,4 +56,20 @@
 .increase-btn {
   width: 40px;
   padding: 4px;
+}
+.delete-btn {
+  width: 40px;
+  padding: 4px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.empty-cart{
+  font-size: 30px;
+  font-family: "MICEGothic Bold";
+  margin: 10%;
+}
+.cart-img-box{
+  border-radius: 20px;
+  margin: 2%;
 }

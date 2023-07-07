@@ -21,9 +21,10 @@ export default function Edit() {
           let body = {
             postNum: params.postNum
           };
-          const response = await axios.post('/api/post/detail', body);
+          const response = await axios.patch(`http://localhost:8000/community/lounge/${params.postNum}`, body);
+          console.log(response);
           if (response.data.success) {
-            setPostInfo(response.data.postList);
+            setPostInfo(response.data.data);
             setFlag(true);
           }
         } catch (err) {
@@ -51,11 +52,11 @@ export default function Edit() {
         postNum: params.postNum
       };
   
-      axios.post('/api/post/edit', body)
+      axios.patch(`http://localhost:8000/community/lounge/${params.postNum}`, body)
         .then((response) => {
-          if (response.data.success) {
+          if (response.status === 200) {
             alert("글 수정이 완료되었습니다.");
-            navigate(`/post/${params.postNum}`);
+            navigate(`/community/detail/${params.postNum}`);
           } else {
             alert("글 수정이 실패하였습니다.");
           }

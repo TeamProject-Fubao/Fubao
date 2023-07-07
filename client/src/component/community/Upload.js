@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// import Galley from "./Galley";
+import ImageUpload from "./ImageUpload";
+
 import {
   UploadDiv,
   UploadForm,
@@ -10,6 +13,7 @@ import {
 export default function Upload() {
   const [Title, setTitle] = useState('');
   const [Content, setContent] = useState('');
+  const [Image, setImage] = useState('');
 
   let navigate = useNavigate();
 
@@ -23,14 +27,14 @@ export default function Upload() {
     let body = {
       title: Title,
       content: Content,
+      img: Image,
     };
-    console.log(body.title);
+    console.log('body title content img입니다', body.title);
 
     axios
       .post('http://localhost:8000/community/lounge', body)
       .then((response) => {
           alert('작성 성공');
-          console.log(response);
           window.location.reload();
       })
       .catch((err) => {
@@ -50,7 +54,8 @@ export default function Upload() {
             setTitle(e.currentTarget.value);
           }}
         />
-
+        {/* <Galley /> */}
+        <ImageUpload setImage={setImage} />
         <label htmlFor="content">Content</label>
         <textarea
           id="content"

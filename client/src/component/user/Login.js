@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./User.css";
+import { SERVER } from "../../lib/constant";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+
+
+export default function LoginFunc() {
+  const navigate = useNavigate();
+
+  const [Email, setEmail] = useState("");
+  const [PW, setPW] = useState("");
+
+  const LoginFunc = async (e) => {
+    e.preventDefault();
+    //email 이나 PW가 빈 값이라면
+    if (!(Email && PW)) {
+      return alert("모든 값을 채워주세요.");
+    }
+    const user = {
+      Email,
+      PW
+    }
+
+    // axios({
+    //   method: "POST",
+    //   url: `${SERVER}/user/signin`,
+    //   data: user
+    // }).then((res) => {
+    //   // console.log(res.data.data)
+    //   if (res.data.result) {
+    //     alert(`${res.data.data}님 환영합니다!`);
+    //     navigate(`/`)
+    //   } else {
+    //     alert("아이디 혹은 비밀번호가 맞지 않습니다.")
+    //   }
+    // })
+  }
+
   return (
     <>
       <div class="wrapper">
@@ -17,6 +53,8 @@ export default function Login() {
                 placeholder="Email Address"
                 required=""
                 autofocus=""
+                value={Email}
+                onChange={(e) => setEmail(e.currentTarget.value)}
               />
             </div>
             <div class="input">
@@ -27,6 +65,8 @@ export default function Login() {
                 name="password"
                 placeholder="Password"
                 required=""
+                value={PW}
+                onChange={(e) => setPW(e.currentTarget.value)}
               />
             </div>
           </div>
@@ -40,7 +80,7 @@ export default function Login() {
             />{" "}
             Remember me
           </label>
-          <button class="btn" type="submit">
+          <button class="btn" type="submit" onClick={LoginFunc}>
             Login
           </button>
         </form>

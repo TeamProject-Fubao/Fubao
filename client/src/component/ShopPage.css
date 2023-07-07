@@ -5,6 +5,13 @@
   font-weight: 700;
   font-style: normal;
 }
+@font-face {
+  font-family: "Dovemayo_gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 .main-box {
   display: flex;
   justify-content: center;
@@ -60,16 +67,15 @@
 .container {
   margin: 10px;
   text-align: center;
-  /* display: flex; */
   justify-content: center;
   display: inline-flex;
 }
 .line {
   border: 2px solid rgb(247, 239, 239);
-  /* background-color: rgb(240, 241, 213); */
   width: 290px;
-  /* border-radius: 10px 10px 10px 10px; */
   position: relative;
+  font-family: "Dovemayo_gothic";
+  font-size: 30px;
 }
 .goods-box {
   display: flex;
@@ -86,4 +92,20 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+}
+.card-img {
+  border-radius: 20px;
+}
+.more-btn {
+  font-size: 30px;
+  font-family: "KBO-Dia-Gothic_bold";
+  border: 2px solid rgb(51, 85, 128);
+  width: 250px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: rgb(51, 85, 128);
+  color: white;
+  cursor: pointer;
+  margin: 2%;
+
 }
