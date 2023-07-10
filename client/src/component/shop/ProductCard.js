@@ -13,23 +13,6 @@ function ProductCard(props) {
 
   };
 
-  // let codeExecuted = false;
-  // let showCards = false;
-
-  // const handleClick = () => {
-  //   if (!codeExecuted) {
-  //     codeExecuted = true;
-  //     showCards = true;
-  //   }
-  // };
-
-  // const handleClick = () => {
-  //   if (!handleClickExecuted) {
-  //     showCards = true;
-  //     handleClickExecuted = true;
-  //     console.log("하이");
-  //   }
-  // };
   return (
     <>
       <div className="goods-box">
@@ -56,17 +39,11 @@ function ProductCard(props) {
       {showGoodsBox && (
   <div className="goods-box">
     <div className="more-btn" onClick={handleClick}>
-      More
+      SEE MORE
     </div>
   </div>
 )}
 
-
-      {/* <div className="goods-box">
-        <div className="more-btn" onClick={handleClick}>
-          More
-        </div>
-      </div> */}
     </>
   );
 }

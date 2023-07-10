@@ -60,6 +60,7 @@
   margin: 3%;
   text-decoration: underline;
   color: rgb(70, 108, 244);
+  cursor: pointer;
 }
 .tab-text {
   font-family: "LINESeedKR-Bd";
