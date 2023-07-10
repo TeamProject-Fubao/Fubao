@@ -8,6 +8,7 @@ import Footer from "./component/Footer";
 import { Routes, Route } from "react-router-dom";
 import ShopPage from "./component/ShopPage";
 import GoodsDetailPage from "./component/GoodsDetailPage";
+import OrderPage from "./component/OrderPage";
 import CartPage from "./component/CartPage";
 import Detail from "./component/community/Detail";
 import Edit from "./component/community/Edit";
@@ -21,7 +22,8 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/detail/:id" element={<GoodsDetailPage />} />
-        <Route path="/cart" element={<CartPage />} />
+        <Route path="/cart" element={<CartPage />}/>
+        <Route path="/order" element={<OrderPage />} />
         <Route path="/community" element={<Community />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

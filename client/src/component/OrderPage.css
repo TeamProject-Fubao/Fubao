@@ -1,0 +1,36 @@
+.address-main-box {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  text-align: center;
+}
+.adress-text-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.form-box {
+  display: flex;
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+.table-border {
+  margin-top: 1%;
+  width: 900px;
+  border: 1px solid black;
+}
+.table-border2 {
+  width: 900px;
+  border: 1px solid black;
+  margin-top: 5%;
+
+}
+.table-tr {
+  height: 90px;
+}
+.table-th{
+  width: 200px;
+  background-color: aqua;
+}

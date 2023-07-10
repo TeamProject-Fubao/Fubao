@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import "../Detail.css";
 import { addItem } from "../../cartstore";
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function Goodsdetail(props) {
@@ -12,6 +12,8 @@ function Goodsdetail(props) {
   });
   let dispatch = useDispatch();
   let navigate = useNavigate();
+
+
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen2, setModalOpen2] = useState(false);
 
@@ -45,6 +47,7 @@ function Goodsdetail(props) {
 
   return (
     <div className="detail-box">
+    
       <img
         className="detail-img-box"
         src={process.env.PUBLIC_URL + "/goods_image/" + findgoods.id + ".jpg"}
@@ -71,6 +74,7 @@ function Goodsdetail(props) {
                 addItem({
                   id: findgoods.id,
                   name: findgoods.product_title,
+                  price: findgoods.price,
                   count: 1,
                 })
               );
