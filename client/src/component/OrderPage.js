@@ -40,12 +40,12 @@ export default function OrderPage(props) {
         <>
           {state.cart.length === -1 ? (
             <>
-              {/* <div className="empty-text">장바구니가 비었습니다!</div> */}
-              <img
+              <div className="empty-text">장바구니에 상품이 없습니다!</div>
+              {/* <img
                 className="card-img"
                 src={process.env.PUBLIC_URL + "goods_image/sad-pubao2.png"}
                 width="80%"
-              />
+              /> */}
             </>
           ) : (
             state.cart.map((a, i) =>
@@ -93,32 +93,32 @@ export default function OrderPage(props) {
                 <input type="text" name="name" />
               </td>
             </tr>
-            </table>
-            <table className="table-border">
+          </table>
+          <table className="table-border">
             <tr className="table-tr">
               <th className="table-th">이메일:</th>
               <td>
                 <input type="email" name="email" />
               </td>
             </tr>
-            </table>
-            <table className="table-border">
+          </table>
+          <table className="table-border">
             <tr className="table-tr">
               <th className="table-th">휴대전화:</th>
               <td>
                 <input type="tel" name="phone" />
               </td>
             </tr>
-            </table>
-            <table className="table-border">
+          </table>
+          <table className="table-border">
             <tr className="table-tr">
               <th className="table-th">주소:</th>
               <td>
                 <textarea name="address" rows="4" cols="30"></textarea>
               </td>
             </tr>
-            </table>
-            <table className="table-border2">
+          </table>
+          <table className="table-border2">
             <tr className="table-tr">
               <th className="table-th">결제:</th>
               <td>

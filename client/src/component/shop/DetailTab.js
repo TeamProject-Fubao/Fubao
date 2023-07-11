@@ -3,12 +3,8 @@ import "../Detail.css";
 import React, { useState } from "react";
 
 function DetailTab(props) {
-  let { id } = useParams();
-  let findgoods = props.goods.find(function (x) {
-    return x.id == id;
-  });
   let [tab, settab] = useState(0);
-  const [selectedTab, setSelectedTab] = useState("");
+  const [selectedTab, setSelectedTab] = useState("Product Details");
 
   const handleTabClick = (tabName) => {
     setSelectedTab(tabName);
@@ -17,7 +13,21 @@ function DetailTab(props) {
   let displayText = "";
 
   if (selectedTab === "Product Details") {
-    displayText = <div className="tab-text">Hello</div>;
+    displayText = (
+      <div className="tab-text">
+        배송 방법 : 택배 <br />
+        배송 지역 : 전국지역 <br />
+        배송 비용 : 3,000 won <br />
+        배송 기간 : 2일 ~ 7일 <br />
+        배송 안내 : <br />
+        1. 2일 ~ 7일의 배송 기간은 영업일 기준, 주말 및 공휴일을 제외한
+        기간입니다. <br />
+        2. 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가
+        있습니다. <br />
+        3. 고객님께서 주문하신 상품은 입금 확인후 배송해 드립니다. 다만,
+        상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.
+      </div>
+    );
   } else if (selectedTab === "Shipping & Return Policy") {
     displayText = (
       <>
@@ -26,11 +36,9 @@ function DetailTab(props) {
           <br />
           제품이 마음에 들지 않아서 반품을 생각하고 계신다면 안심하세요. foubao
           온라인 스토어에서 구매한 제품은 수령일로부터 30일 이내에 반품 신청할
-          수 있어요. 반품 신청 전에 제품 택이 부착되어 있는지, 착용 및 세탁하지
+          수 있어요.  <br />반품 신청 전에 제품 택이 부착되어 있는지, 착용 및 세탁하지
           않은 상태인지 다시 한 번 체크해주세요.
-        </div>
-        <br />
-        <div className="tab-text ">
+          <br />
           반품 방법 1. 제품을 받은 날로부터 30일 이내에
           이메일(fuobao.kr@cute.com) 또는 전화(070.1234.4321)로 반품 의사를
           남겨주세요. 주문번호(ex. KR00123456)/성함/반품할 제품 목록을 함께
@@ -54,17 +62,19 @@ function DetailTab(props) {
   } else if (selectedTab === "Sales proceeds") {
     displayText = (
       <div className="tab-text">
-        우리는 제품 판매로 인한 모든 페니가 자선 활동에 사용된다는 사실을
-        공유하게 되어 기쁩니다. 사회에 긍정적인 영향을 미치겠다는 확고한 의지로
-        수익금 전액을 도움이 필요한 사람들을 지원하기 위해 기부할 것을
-        약속했습니다.
+        고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다.
+        확인과정에서 도난 카드의 사용이나 타인 명의의 주문등 정상적인 주문이
+        아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있습니다. <br />
+        무통장 입금은 상품 구매 대금은 PC뱅킹, 인터넷뱅킹, 텔레뱅킹 혹은 가까운
+        은행에서 직접 입금하시면 됩니다. 주문시 입력한 입금자명과 실제입금자의
+        성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며 입금되지
+        않은 주문은 자동취소 됩니다.
         <br />
         <br />
       </div>
     );
   }
 
-  console.log(findgoods.id);
   return (
     <div>
       <nav>
@@ -75,7 +85,7 @@ function DetailTab(props) {
             }`}
             onClick={() => handleTabClick("Product Details")}
           >
-            제품 디테일
+            배송정보
           </div>
           <div
             className={`tab-box-inner ${
@@ -83,7 +93,7 @@ function DetailTab(props) {
             }`}
             onClick={() => handleTabClick("Shipping & Return Policy")}
           >
-            배송 및 반품정책
+            반품 정책
           </div>
           <div
             className={`tab-box-inner ${
@@ -91,7 +101,7 @@ function DetailTab(props) {
             }`}
             onClick={() => handleTabClick("Sales proceeds")}
           >
-            판매 수익금
+            상품결제정보
           </div>
         </div>
       </nav>

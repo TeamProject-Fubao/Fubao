@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 function Card(props) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const moveDetail = () => {
     console.log(props.goods.id);
     navigate("/shop/detail/" + props.goods.id);
@@ -11,7 +11,8 @@ function Card(props) {
     <>
       <div className="container" onClick={moveDetail}>
         <div className="col-md-4 line">
-          <img className="card-img"
+          <img
+            className="card-img"
             src={
               process.env.PUBLIC_URL + "goods_image/" + props.goods.id + ".jpg"
             }

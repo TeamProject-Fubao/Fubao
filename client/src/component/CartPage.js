@@ -41,12 +41,12 @@ export default function CartPage(props) {
         <div className="table-box-main">
           {state.cart.length === 1 ? (
             <>
-              {/* <div className="empty-text">장바구니가 비었습니다!</div> */}
-              <img
+              <div className="empty-text">장바구니에 상품이 없습니다!</div>
+              {/* <img
                 className="card-img"
                 src={process.env.PUBLIC_URL + "goods_image/sad-pubao2.png"}
                 width="80%"
-              />
+              /> */}
             </>
           ) : (
             (

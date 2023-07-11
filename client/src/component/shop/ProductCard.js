@@ -16,7 +16,7 @@ function ProductCard(props) {
   return (
     <>
       <div className="goods-box">
-        <div className="goods-line">🐼금주의 핫템🐼</div>
+        <div className="goods-line">🐼BEST SELLER🐼</div>
       </div>
       <div className="goods-box-img">
         <div className="row">

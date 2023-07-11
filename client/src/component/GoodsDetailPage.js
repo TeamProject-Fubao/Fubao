@@ -3,6 +3,7 @@ import Goodsdetail from "./shop/Goodsdetail";
 import data from "../goodsdata";
 import DetailTab from "./shop/DetailTab";
 
+
 export default function GoodsDetailPage(props) {
   return (
     <>

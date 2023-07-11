@@ -3,6 +3,8 @@ import data from "../goodsdata";
 import React, { useEffect, Component, useState } from "react";
 import ProductCard from "../component/shop/ProductCard";
 import "./ShopPage.css";
+import axios from "axios";
+import { SERVER } from "../lib/constant";
 
 export default function ShopPage() {
   return (

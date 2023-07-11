@@ -22,7 +22,7 @@ const user = function (Sequelize, Database) {
       },
       email: {
         type: Database.STRING(50),
-        allowNull: false,
+        allowNull: true,
       },
     },
     {
